@@ -14,6 +14,7 @@
                 <th>Price</th>
                 <th>color</th>
                 <th>qty.</th>
+                <th>Action</th>
             </tr>
             <?php foreach($item_array as $item){ ?>
             <tr>
@@ -21,17 +22,36 @@
             <td><?Php echo $item->price;?></td>
             <td><?Php echo $item->colour;?></td>
             <td><?Php echo $item->qty;?></td>
+            <!-- <td><a href>Edit</a href></td> -->
+            <td><a href="<?=base_url();?>/Home2/updateItem/<?=$item->id;?>">Update</a></td>
+            
             </tr>
             <?php }
             ?>
         </table>
-        <button onclick="onButtonClick()">Add Items</button>
+
+       
+        <!-- <button >Add Items</button> -->
 
                 <script>
                     function onButtonClick(){
                         window.location.href="http://127.0.0.1/first-project/public/Home2/addItemForm";
                     }
                 </script>
+                <!-- Script for updating the database -->
+                <script>
+                    function onEditButtonClick(data){
+                       
+                        // var par = String(data);
+
+                        // var tub = "afklalfkhhafhakljkjsjkjsajl"
+                        console.log(typeof data);
+                        // alert(par);
+
+                        // window.location.href=`http://127.0.0.1/first-project/public/Home2/updateItem/${tub}`;
+                    }
+                </script>
+
 
     </body>
 </html>

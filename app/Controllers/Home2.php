@@ -71,13 +71,25 @@ public function itemview(){
     return view('itemView', ["item_array"=>$fetchData]);
 }
 
+//Starting CRUD operations from here
+
+//Creating controller to create entry in database
 public function addItemForm(){
     if($_POST==null){
         return view('addItemView');
+       
+        // print_r($postData);
     }else{
         $db = \Config\Database::connect();
         $builder = $db->table('item_master');
+        helper('text');
+        $bytes = random_string('alnum', 16);
+
+        // $randId = random_bytes(20);
+        // var_dump(bin2hex($bytes));
+        echo $bytes;
         $postData = [
+            'id'=> $bytes,
             'item1' => $_POST["item1"],
             'price' => $_POST["price"],
             'colour' => $_POST["colour"],
@@ -85,14 +97,33 @@ public function addItemForm(){
         ];
         // print_r($postData);
         $builder->insert($postData);
-        // $this->load->helper('http://127.0.0.1/first-project/public/Home2/itemview');
-        return view('addItemView');
+        return redirect()->to('http://127.0.0.1/first-project/public/Home2/itemview'); 
+        echo "Else logic is being executed";
+        // return view('addItemView');
+        
     }
+
    
 }
 
-// public function handleItemData(){
-//     echo "POST request is being handled";
-// }
+//Creating update cotroller to update data in database
+public function updateItem($sm){
+    function checkToUpdate(){
+        echo "i am ready to update the data";
+    }
+    // die("anything");
+    
+    if($sm!= null){
+        $db = \Config\Database::connect();
+        $builder = $db->table('item_master')
+        ->getWhere(['id'=>$sm])
+        ->getResultObject();
+        checkToUpdate();
+        return view('updateItem', ["toPopulateData"=>$builder]);
+    }else{
+        die("Something went wrong");
+    }
+    
+}
 
 }
