@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just a test tile</title>
+    <title>Fetch Result</title>
 </head>
 <body>
-    <h1>Hii.. i am working <?php echo $name .' '. $age ?></h1>
+    <h1>Hii all the result goes here.</h1>
 </body>
 </html>
