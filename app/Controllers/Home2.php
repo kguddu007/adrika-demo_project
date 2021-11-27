@@ -109,7 +109,15 @@ public function addItemForm(){
 //Creating update cotroller to update data in database
 public function updateItem($sm){
     function checkToUpdate(){
-        echo "i am ready to update the data";
+        //FIrst validation to check if we can update or not
+        
+        // if()
+        $dataTobeUpdated = $_POST;
+        print_r(count($dataTobeUpdated));
+        if(count($dataTobeUpdated)>0){
+
+        }
+        
     }
     // die("anything");
     
